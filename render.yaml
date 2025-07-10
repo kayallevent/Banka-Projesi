@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: bankapp-service
+    env: docker
+    plan: free
+    repo: https://github.com/kayallevent/Banka-Projesi
+    region: frankfurt
+    branch: main
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
