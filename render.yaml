@@ -1,6 +1,7 @@
 services:
   - type: web
-    name: banka-projesi
+    name: bankapp
     env: docker
-    rootDir: bankapp
     plan: free
+    buildCommand: "./mvnw clean install"
+    startCommand: "java -jar target/*.jar"
