@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: bankapp
+    name: banka-projesi
     env: docker
     rootDir: bankapp
     plan: free
-    region: frankfurt
