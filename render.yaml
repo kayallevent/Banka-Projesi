@@ -4,4 +4,4 @@ services:
     env: docker
     plan: free
     branch: main
-    rootDir: .bankapp
+
