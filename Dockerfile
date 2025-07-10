@@ -1,21 +1,22 @@
-# Temel Java 17 image'i
-FROM eclipse-temurin:17-jdk-alpine
+# Temel imaj
+FROM eclipse-temurin:17-jdk
 
-# Uygulama dizinini oluştur
+# Çalışma dizini oluştur
 WORKDIR /app
 
-# Maven wrapper dosyalarını kopyala (varsa)
-COPY bankapp/.mvn .mvn
-COPY bankapp/mvnw pom.xml ./
+# Maven wrapper dosyalarını ve pom.xml'i kopyala
+COPY .mvn/ .mvn
+COPY mvnw .
+COPY pom.xml .
 
-# Maven bağımlılıklarını indir
+# Bağımlılıkları indir
 RUN ./mvnw dependency:go-offline
 
-# Tüm kaynak dosyaları kopyala
-COPY .. .
+# Tüm kaynakları kopyala
+COPY . .
 
-# Uygulama derleniyor
+# Projeyi build et
 RUN ./mvnw clean package -DskipTests
 
-# .jar dosyasını çalıştır
+# Uygulamayı çalıştır
 CMD ["java", "-jar", "target/*.jar"]
