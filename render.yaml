@@ -5,4 +5,4 @@ services:
     region: frankfurt
     plan: free
     branch: main
-    rootDir: .
+    rootDir: bankapp
