@@ -3,3 +3,18 @@ services:
     name: bankapp
     env: docker
     plan: free
+    databases:
+      - name: bankproject
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: bankproject
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: bankproject
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: bankproject
+          property: password
